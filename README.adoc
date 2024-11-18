@@ -1,0 +1,63 @@
+= HackWeek24
+
+This repository contains the docs and content for HackWeek24 which took place from the 18th to the 22nd November 2024.
+
+== Project goal
+
+As described in https://hackweek.opensuse.org/projects/docs-as-code-programmable-pipelines-with-dagger-dot-io[HackWeek's website], the main goal is create Docs as Code with https://dagger.io/[Dagger.io].
+
+=== Extra goal
+
+
+
+== Docs
+
+The docs are written in AsciiDoc and hosted with Antora and the environment's setup is part of the project itsef.
+
+== Environment
+
+The different environments used to build and test the project were:
+
+[cols="0,1,1,2"]
+|===
+| Environment | OS | Container Runtime | Comments
+
+| Linux
+| https://aeondesktop.github.io/[Aeon Desktop OS]
+| https://podman-desktop.io/[Podman Desktop]
+| Podman Desktop is available as a flatpak and can be installed while respecting the immutable OS philosophy.
+
+| Windows
+| https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5[Windows 11 24H2]
+| https://www.docker.com/products/docker-desktop/[Docker Desktop]
+| Docker Desktop has still the best integration with Windows and WSL2, which will be used to run Linux containers. Windows containers are out of scope.
+
+| MacOS
+| https://www.apple.com/macos/macos-sequoia/[MacOS Sequoia]
+| https://rancherdesktop.io/[Rancher Desktop]
+| Rancher Desktop uses https://lima-vm.io/[Lima] as it's backend for MacOS, and while it also has `docker` runtime, for this project, `containerd` runtime will be the one used.
+|===
+
+=== Additional components
+
+Additionally to the OS and Container Runtime, the following components were installed/consumed:
+
+[cols="1,1,2"]
+|===
+| Component | Type | Purpose
+
+| https://docs.dagger.io/install[Dagger CLI]
+| Dagger command line
+| Used to build, test and publish the pipelines
+
+| https://dagger.cloud/[Dagger.io Cloud]
+| Cloud service from Dagger.io
+| Dagger pipelines visualization
+|===
+
+== Resources
+
+Here's the complete listing of all the references used from the kickstart to the demo:
+
+* https://docs.dagger.io/[Dagger.io docs]: used during the early stage, to understand how to install and use basic `dagger` commands.
+** `quickstart` is added to this repo as part of the week's documentation. It has no impact on main project and it's purpose was to check dagger's installation and setup.
