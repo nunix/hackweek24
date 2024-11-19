@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+
+# This Dockerfile is used to build an image that can be used to run Antora
+FROM antora/antora
+
+# Install the asciidoctor-kroki, @asciidoctor/tabs, and @antora/lunr-extension
+RUN yarn global add \
+  asciidoctor-kroki \
+  @asciidoctor/tabs \
+  @antora/lunr-extension

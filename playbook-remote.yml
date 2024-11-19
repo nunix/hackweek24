@@ -1,0 +1,29 @@
+site:
+  title: Rancher Turtles
+  url: /
+  start_page: v0.13@turtles:en:index.adoc
+
+content:
+  sources:
+    - url: https://github.com/rancher/turtles-docs.git
+      branches: [main]
+      start_paths: [docs/v0.13, docs/v0.12, docs/v0.11]
+
+ui: 
+  bundle:
+    url: https://github.com/rancher/product-docs-ui/blob/main/build/ui-bundle.zip?raw=true
+    snapshot: true
+  supplemental_files: ./supplemental-files
+
+runtime:
+  fetch: true
+
+asciidoc:
+  attributes:
+    page-pagination: ''
+    tabs-sync-option: ''
+  extensions:
+  - '@asciidoctor/tabs'
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'

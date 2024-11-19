@@ -1,3 +1,7 @@
+# AsciiDoc and Antora
+.asciidoctor
+build/
+
 # Logs
 logs
 *.log

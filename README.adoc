@@ -55,9 +55,60 @@ Additionally to the OS and Container Runtime, the following components were inst
 | Dagger pipelines visualization
 |===
 
+== Build the project
+
+[tabs]
+====
+Docker CLI::
++
+======
+[source,shell,linenums]
+----
+# Build an Antora image with additional packages
+## For local testing, no image hub is used.
+## For remote testing, change `local` to an existing image hub repo
+docker build -t local/antora:custom -f Dockerfile.antora .
+
+# Check if the image has been correctly created
+docker image list
+----
+======
+
+Podman CLI::
++
+======
+[source,shell,linenums]
+----
+# Build an Antora image with additional packages
+## For local testing, no image hub is used.
+## For remote testing, change `local` to an existing image hub repo
+podman build -t local/antora:custom -f Dockerfile.antora .
+
+# Check if the image has been correctly created
+podman images
+----
+======
+
+Nerdctl CLI::
++
+======
+[source,shell,linenums]
+----
+# Build an Antora image with additional packages
+## For local testing, no image hub is used.
+## For remote testing, change `local` to an existing image hub repo
+nerdctl build -t local/antora:custom -f Dockerfile.antora .
+
+# Check if the image has been correctly created
+nerdctl images
+----
+======
+====
+
 == Resources
 
 Here's the complete listing of all the references used from the kickstart to the demo:
 
 * https://docs.dagger.io/[Dagger.io docs]: used during the early stage, to understand how to install and use basic `dagger` commands.
 ** `quickstart` is added to this repo as part of the week's documentation. It has no impact on main project and it's purpose was to check dagger's installation and setup.
+*
