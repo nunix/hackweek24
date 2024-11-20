@@ -11,6 +11,15 @@ services:
     environment:
       - PLAYBOOK
     command: sh -c "rm -rf build && antora --fetch ${PLAYBOOK:-playbook-remote.yml}"
+    develop:
+      watch:
+        - action: sync
+          path: ./build/site
+          target: /antora/build/site
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: /docs
   
   http-server:
     image: registry.opensuse.org/opensuse/bci/node:20
