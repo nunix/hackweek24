@@ -3,34 +3,27 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.antora
-    image: local/antora_service
-    container_name: antora_service
+    image: local/antora
+    container_name: antora
     user: 1000:1000
     volumes:
       - .:/antora
-    environment:
-      - PLAYBOOK
-    command: sh -c "rm -rf build && antora --fetch ${PLAYBOOK:-playbook-remote.yml}"
+    command: ${PLAYBOOK:-playbook-remote.yml}
     develop:
       watch:
-        - action: sync
-          path: ./build/site
-          target: /antora/build/site
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: /docs
+        - path: ./docs/
+          action: rebuild
   
   http-server:
     image: registry.opensuse.org/opensuse/bci/node:20
     container_name: http_server
     working_dir: /antora
     volumes:
-      - .:/antora
+      - ./build:/antora
     command: >
       sh -c "
       npm i -g http-server &&
-      npx http-server build/site -c-1 -p 8080
+      npx http-server site -c-1 -p 8080
       "
     ports:
       - "8080:8080"
