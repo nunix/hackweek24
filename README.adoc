@@ -25,7 +25,7 @@ The different environments used to build and test the project were:
 | Linux
 | https://aeondesktop.github.io/[Aeon Desktop OS]
 | https://podman-desktop.io/[Podman Desktop]
-| Podman Desktop is available as a flatpak and can be installed while respecting the immutable OS philosophy.
+| Podman Desktop is available as a flatpak and can be installed while respecting the immutable OS philosophy. As the compose spec is needed, `podmand compose` relies on docker-compose binary and therefore, it should be installed as well.
 
 | Windows
 | https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5[Windows 11 24H2]
@@ -35,7 +35,7 @@ The different environments used to build and test the project were:
 | MacOS
 | https://www.apple.com/macos/macos-sequoia/[MacOS Sequoia]
 | https://rancherdesktop.io/[Rancher Desktop]
-| Rancher Desktop uses https://lima-vm.io/[Lima] as it's backend for MacOS, and while it also has `docker` runtime, for this project, `containerd` runtime will be the one used.
+| Rancher Desktop uses https://lima-vm.io/[Lima] as it's backend for MacOS, and while it also has `containerd` runtime, for this project, `moby` runtime will be the one used as we'll need the latest Compose spec available.
 |===
 
 === Additional components
